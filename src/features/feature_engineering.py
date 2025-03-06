@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import os
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 import yaml
 
 def load_params(params_path: str) -> int:
@@ -38,7 +38,7 @@ def fetch_data(train_path: str, test_path: str) -> pd.DataFrame:
 def feature_engg(X_train: np.array, X_test: np.array, max_features: int) -> np.array:
     try:
         # Apply Bag of Words (CountVectorizer)
-        vectorizer = CountVectorizer(max_features=max_features)
+        vectorizer = TfidfVectorizer(max_features=max_features)
 
         # Fit the vectorizer on the training data and transform it
         X_train_bow = vectorizer.fit_transform(X_train)
@@ -55,8 +55,8 @@ def feature_engg(X_train: np.array, X_test: np.array, max_features: int) -> np.a
 def save_data(data_path: str, train_df: pd.DataFrame, test_df: pd.DataFrame) -> None:
     try:
         os.makedirs(data_path, exist_ok=True)  # Ensure the directory exists
-        train_df.to_csv(os.path.join(data_path, "train_bow.csv"), index=False)
-        test_df.to_csv(os.path.join(data_path, "test_bow.csv"), index=False)
+        train_df.to_csv(os.path.join(data_path, "train_tfidf.csv"), index=False)
+        test_df.to_csv(os.path.join(data_path, "test_tfidf.csv"), index=False)
     except PermissionError:
         print(f"Error: Permission denied to write to {data_path}.")
         raise

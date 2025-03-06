@@ -44,29 +44,29 @@ stages:
       nfiles: 2
     - path: src/features/feature_engineering.py
       hash: md5
-      md5: a58a5c2091ff9d9b3aeb1ea86d0b87cf
-      size: 3604
+      md5: 6b14e7ea8d92917ed4454926da7c1a29
+      size: 3608
     params:
       params.yaml:
         feature_engineering.max_features: 500
     outs:
     - path: data/features
       hash: md5
-      md5: 8779aada00999efe6c63c460fa207f70.dir
-      size: 10408916
+      md5: a23c054ce85fa0a22015270cab7e9a93.dir
+      size: 21490421
       nfiles: 2
   model_building:
     cmd: python src/models/model_building.py
     deps:
     - path: data/features
       hash: md5
-      md5: 8779aada00999efe6c63c460fa207f70.dir
-      size: 10408916
+      md5: a23c054ce85fa0a22015270cab7e9a93.dir
+      size: 21490421
       nfiles: 2
     - path: src/models/model_building.py
       hash: md5
-      md5: ccbec7669db68c82185f57e4b6c0db6b
-      size: 3092
+      md5: 3bf6171fae02b59a701653bd9738f3ac
+      size: 3094
     params:
       params.yaml:
         model_building.learning_rate: 0.1
@@ -74,26 +74,26 @@ stages:
     outs:
     - path: model/model.pkl
       hash: md5
-      md5: 4e3ffb3652a5bb02b36b6ccc9d9c9866
-      size: 146173
+      md5: 752ec736fb0aeab589c9c3b17308cb86
+      size: 146029
   model_evaluation:
     cmd: python src/models/model_evaluation.py
     deps:
     - path: data/features
       hash: md5
-      md5: 8779aada00999efe6c63c460fa207f70.dir
-      size: 10408916
+      md5: a23c054ce85fa0a22015270cab7e9a93.dir
+      size: 21490421
       nfiles: 2
     - path: model/model.pkl
       hash: md5
-      md5: 4e3ffb3652a5bb02b36b6ccc9d9c9866
-      size: 146173
+      md5: 752ec736fb0aeab589c9c3b17308cb86
+      size: 146029
     - path: src/models/model_evaluation.py
       hash: md5
-      md5: ebdcd334539439f1e4734d1dc4eb9ff3
-      size: 3671
+      md5: b89d28d56a48819ef95e2794ef34790e
+      size: 3673
     outs:
     - path: reports/metrics.json
       hash: md5
-      md5: feb6299bc83db0945b5e490fda0df2b2
+      md5: d8659709982ba71a6227f1e88efba9dd
       size: 145

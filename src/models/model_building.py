@@ -70,7 +70,7 @@ def save_model(clf: np.binary_repr) -> None:
 def main():
     try:
         params = load_params('params.yaml')
-        train_data = fetch_data("./data/features/train_bow.csv")
+        train_data = fetch_data("./data/features/train_tfidf.csv")
         
         if train_data.empty:
             print("Error: The training data is empty. Please check the input file.")

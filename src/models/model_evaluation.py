@@ -79,7 +79,7 @@ def save_metrics(precision: float, recall: float, auc: float, accuracy: float) -
 def main():
     try:
         clf = load_model('./model/model.pkl')
-        test_data = fetch_data("./data/features/test_bow.csv")
+        test_data = fetch_data("./data/features/test_tfidf.csv")
         
         if test_data.empty:
             print("Error: The test data is empty. Please check the input file.")
