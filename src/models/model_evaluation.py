@@ -67,7 +67,7 @@ def evaluate_metrics(y_test: np.array, y_pred: np.array) -> float:
 def save_metrics(precision: float, recall: float, auc: float, accuracy: float) -> None:
     try:
         metric_dict = {'accuracy': accuracy, 'precision': precision, 'recall': recall, 'auc': auc}
-        with open('metric.json', 'w') as f:
+        with open('reports/metrics.json', 'w') as f:
             json.dump(metric_dict, f, indent=4)
     except PermissionError:
         print("Error: Permission denied to write to 'metric.json'.")
@@ -78,7 +78,7 @@ def save_metrics(precision: float, recall: float, auc: float, accuracy: float) -
 
 def main():
     try:
-        clf = load_model('model.pkl')
+        clf = load_model('./model/model.pkl')
         test_data = fetch_data("./data/features/test_bow.csv")
         
         if test_data.empty:

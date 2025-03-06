@@ -58,7 +58,7 @@ def train_model(X_train: np.array, y_train: np.array, params: np.__dict__) -> np
 
 def save_model(clf: np.binary_repr) -> None:
     try:
-        with open('model.pkl', 'wb') as file:
+        with open('./model/model.pkl', 'wb') as file:
             pickle.dump(clf, file)
     except PermissionError:
         print("Error: Permission denied to write the model file.")

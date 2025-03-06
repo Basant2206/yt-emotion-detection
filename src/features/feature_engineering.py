@@ -67,7 +67,7 @@ def save_data(data_path: str, train_df: pd.DataFrame, test_df: pd.DataFrame) -> 
 def main():
     try:
         max_features = load_params('params.yaml')
-        train_data, test_data = fetch_data("./data/processed/train_processed.csv", "./data/processed/test_processed.csv")
+        train_data, test_data = fetch_data("./data/interim/train_processed.csv", "./data/interim/test_processed.csv")
 
         train_data.fillna(" ", inplace=True)
         test_data.fillna(" ", inplace=True)

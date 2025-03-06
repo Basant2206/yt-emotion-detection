@@ -131,7 +131,7 @@ def main():
         test_processed_data = normalize_text(test_data)
 
         # Store data
-        data_path = os.path.join("data", "processed")
+        data_path = os.path.join("data", "interim")
         save_processed_data(data_path, train_processed_data, test_processed_data)
 
     except Exception as e:
